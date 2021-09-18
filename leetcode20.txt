@@ -1,0 +1,35 @@
+class Solution {
+    public boolean isValid(String s) {
+       ArrayList<Character> list = new ArrayList<>();
+        int t = 0;
+        for (Character character : s.toCharArray()) {
+            switch (character) {
+                case '(': {
+                    list.add(')');
+                    t++;
+                    break;
+                }
+                case '{': {
+                    list.add('}');
+                    t++;
+                    break;
+                }
+                case '[': {
+                    list.add(']');
+                    t++;
+                    break;
+                }
+
+                default:
+                    if (t <= 0) return false;
+                    else if (list.get(t - 1).equals(character)) {
+                        list.remove(t - 1);
+                        t--;
+                    } else
+                        return false;
+            }
+        }
+ 
+        return list.isEmpty();
+    }
+}

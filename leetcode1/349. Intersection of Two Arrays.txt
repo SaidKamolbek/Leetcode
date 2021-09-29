@@ -1,0 +1,15 @@
+ HashSet<Integer> set = new HashSet<Integer>();
+        HashSet<Integer> set2 = new HashSet<Integer>();
+        for (int i : nums1) {
+            set.add(i);
+        }
+        for (int i : nums2) {
+            set2.add(i);
+        }
+        set.retainAll(set2);
+        int[] out = new int[set.size()];
+        int index = 0;
+        for (Integer integer : set) {
+            out[index++] = integer;
+        }
+        return out;

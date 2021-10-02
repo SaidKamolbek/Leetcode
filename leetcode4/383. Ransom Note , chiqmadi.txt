@@ -1,0 +1,13 @@
+   public static boolean canConstruct(String ransomNote, String magazine) {
+        boolean bool = true;
+        int t = 0;
+        while (t < ransomNote.length()) {
+            char ch = ransomNote.charAt(t);
+            bool = magazine.contains(ch + "");
+            if (bool) magazine = magazine.replace(ch + "", "");
+            else return bool;
+            System.out.println(magazine);
+            t++;
+        }
+        return bool;
+    }
